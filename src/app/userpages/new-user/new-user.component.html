@@ -1,1 +1,102 @@
-<p>new-user works!</p>
+<div class="container">
+    <div class="card mt-3">
+        <div class="card-header bg-primary text-center text-light fw-bold text-lg">
+            <h2>Register Here</h2>
+        </div>
+        <div class="card-body">
+            <div class="container mt-3">
+                <form [formGroup]="userForm">
+                    <div class="row mt-2">
+                        <div class="col-md-4">
+                            <label for="">First Name</label>
+                            <input type="text" class="form-control" formControlName="firstname">
+                            <div *ngIf="userForm.controls['firstname'].touched" class="text-danger">
+                                <div *ngIf="userForm.controls['firstname'].errors?.['required']">First name required</div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="">Last Name</label>
+                            <input type="text" class="form-control" formControlName="lastname">
+                            <div *ngIf="userForm.controls['lastname']?.touched " class="text-danger">
+                                <div *ngIf="userForm.controls['lastname'].errors?.['required']">lastname required</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-4">
+                            <label for="">Email</label>
+                            <input type="email" class="form-control" formControlName="email">
+                            <div *ngIf="userForm.controls['email']?.touched " class="text-danger">
+                                <span *ngIf="userForm.controls['email'].errors?.['required']">email required</span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="">Phone</label>
+                            <input type="text" class="form-control" formControlName="phone">
+                            <div *ngIf="userForm.controls['phone']?.touched " class="text-danger">
+                                <span *ngIf="userForm.controls['phone'].errors?.['required']">phone required</span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="">Status</label>
+                            <input type="text" class="form-control" formControlName="status">
+                            <div *ngIf="userForm.controls['status']?.touched " class="text-danger">
+                                <span *ngIf="userForm.controls['status'].errors?.['required']">status required</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-4">
+                            <label for="">DOB</label>
+                            <input type="date" class="form-control" formControlName="dob">
+                            <div *ngIf="userForm.controls['dob']?.touched " class="text-danger">
+                                <span *ngIf="userForm.controls['dob'].errors?.['required']">dob required</span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="">Password</label>
+                            <input type="password" class="form-control" formControlName="password">
+                            <div *ngIf="userForm.controls['password']?.touched" class="text-danger">
+                                <span *ngIf="userForm.controls['password'].errors?.['required']">password required</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-2" formGroupName="address">
+                        <div class="col-md-4">
+                            <label for="">Country</label>
+                            <input type="text" class="form-control" formControlName="country">
+                            <div *ngIf="userForm.get('address.country')?.touched" class="text-danger">
+                                <span *ngIf="userForm.get('address.country')?.errors?.['required']">country required</span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="">State</label>
+                            <input type="password" class="form-control" formControlName="state">
+                            <div *ngIf="userForm.get('address.state')?.touched" class="text-danger">
+                                <span *ngIf="userForm.get('address.state')?.errors?.['required']">state required</span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="">City</label>
+                            <input type="text" class="form-control" formControlName="city">
+                            <div *ngIf="userForm.get('address.city')?.touched " class="text-danger">
+                                <span *ngIf="userForm.get('address.city')?.errors?.['required']">city required</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-4"></div>
+                        <div class="col-md-4 ">
+    
+                        </div>
+                        <div class="col-md-4 container-fluid d-flex justify-content-evenly">
+                            <button class="btn btn-warning btn-lg">Reset</button>
+                            <button class="btn btn-success btn-lg" (click)="onsave()">Save</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
