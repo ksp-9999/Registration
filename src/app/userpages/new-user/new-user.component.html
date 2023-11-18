@@ -71,7 +71,7 @@
                         </div>
                         <div class="col-md-4">
                             <label for="">State</label>
-                            <input type="password" class="form-control" formControlName="state">
+                            <input type="text" class="form-control" formControlName="state">
                             <div *ngIf="userForm.get('address.state')?.touched" class="text-danger">
                                 <span *ngIf="userForm.get('address.state')?.errors?.['required']">state required</span>
                             </div>
@@ -90,8 +90,9 @@
     
                         </div>
                         <div class="col-md-4 container-fluid d-flex justify-content-evenly">
-                            <button class="btn btn-warning btn-lg">Reset</button>
-                            <button class="btn btn-success btn-lg" (click)="onsave()">Save</button>
+                            <button class="btn btn-warning btn-lg" (click)="onreset()">Reset</button>
+                            <button class="btn btn-success btn-lg" (click)="onsave()" *ngIf="res!=''">Save</button>
+                            <button class="btn btn-success btn-lg" (click)="onupdate()" *ngIf="res==''">Update</button>
                         </div>
                     </div>
                 </form>

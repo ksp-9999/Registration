@@ -14,6 +14,10 @@ const routes:Routes=[
     component:NewUserComponent
   },
   {
+    path:'newuser/:index',
+    component:NewUserComponent
+  },
+  {
     path:'userslist',
     component:UserListComponent
   },

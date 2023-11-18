@@ -1,1 +1,36 @@
-<p>user-list works!</p>
+<div class="container mt-3">
+    <div class="card">
+        <div class="card-header text-center bg-primary text-light">
+            <h2>User Details</h2>
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered text-center">
+                <thead class="table-light">
+                    <tr>
+                        <th>Sr No</th>
+                        <th>Name</th>
+                        <th>Phone</th>
+                        <th>Email</th>
+                        <th>Status</th>
+                        <th>Address</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let user of userslist;index as i" [ngClass]="{'bg-warning':user.status=='pending','bg-success':user.status=='approved','bg-danger':user.status=='rejected'}">
+                        <td>{{i+1}}</td>
+                        <td>{{user.firstname+user.lastname}}</td>
+                        <td>{{user.phone}}</td>
+                        <td>{{user.email}}</td>
+                        <td>{{user.status}}</td>
+                        <td>{{user.address.state}}</td>
+                        <td class="d-flex justify-content-evenly bg-light">
+                            <button class="btn btn-primary" (click)="onedit(i)">Edit</button>
+                            <button class="btn btn-danger" (click)="ondelete(i)">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
